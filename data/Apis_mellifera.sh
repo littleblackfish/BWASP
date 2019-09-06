@@ -136,6 +136,37 @@ sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR9316837/;
 
 sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR9316838/;" Amel/${EXPERIMENT}/sperm/replicate1/Makefile
 
+EXPERIMENT=Galbraith # https://doi.org/10.1371/journal.ppat.1004713
+
+./xmkdirstr Amel ${EXPERIMENT} control 1 p
+./xmkdirstr Amel ${EXPERIMENT} infected 1 p
+
+sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR1790688_SRR1790689/;" Amel/${EXPERIMENT}/infected/replicate1/Makefile
+
+sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR1790690_SRR1790691/;" Amel/${EXPERIMENT}/control/replicate1/Makefile
+
+# This experiment has multiple runs per experiment (not replicates)
+# so we merge them manually
+
+pushd Amel/${EXPERIMENT}/infected/replicate1
+fasterq-dump SRR1790688
+fasterq-dump SRR1790689
+cat {SRR1790688,SRR1790689}_1.fastq > SRR1790688_SRR1790689_1.fastq
+cat {SRR1790688,SRR1790689}_2.fastq > SRR1790688_SRR1790689_2.fastq
+rm {SRR1790688,SRR1790689}_1.fastq {SRR1790688,SRR1790689}_2.fastq
+mkdir FastQC
+popd
+
+
+pushd Amel/${EXPERIMENT}/control/replicate1
+fasterq-dump SRR1790690
+fasterq-dump SRR1790691
+cat {SRR1790690,SRR1790691}_1.fastq > SRR1790690_SRR1790691_1.fastq
+cat {SRR1790690,SRR1790691}_2.fastq > SRR1790690_SRR1790691_2.fastq
+rm {SRR1790690,SRR1790691}_1.fastq {SRR1790690,SRR1790691}_2.fastq
+mkdir FastQC
+popd
+
 EXPERIMENT=Remnant # https://dx.doi.org/10.1186/s12864-016-2506-8
 
 ./xmkdirstr Amel ${EXPERIMENT}  fembryo 1 p
