@@ -230,6 +230,6 @@ sed -i -e "s/${SE_TEMPLATE_GENOME}/${GENOME}/; s/${SE_TEMPLATE_SRA}/SRR7780644/;
 sed -i -e "s/${SE_TEMPLATE_GENOME}/${GENOME}/; s/${SE_TEMPLATE_SRA}/SRR7780645/;" Amel/${EXPERIMENT}/sperm_lc/replicate3/Makefile
 
 sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993055/;" Amel/${EXPERIMENT}/sperm_hc/replicate1/Makefile
-sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993056/;" Amel/${EXPERIMENT}/sperm_hc/replicate1/Makefile
-sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993057/;" Amel/${EXPERIMENT}/sperm_hc/replicate1/Makefile
-sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993058/;" Amel/${EXPERIMENT}/sperm_hc/replicate1/Makefile
+sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993056/;" Amel/${EXPERIMENT}/sperm_hc/replicate2/Makefile
+sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993057/;" Amel/${EXPERIMENT}/sperm_hc/replicate3/Makefile
+sed -i -e "s/${PE_TEMPLATE_GENOME}/${GENOME}/; s/${PE_TEMPLATE_SRA}/SRR8993058/;" Amel/${EXPERIMENT}/sperm_hc/replicate4/Makefile
